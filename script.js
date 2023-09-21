@@ -5,6 +5,7 @@ const phonetic = document.getElementById("phonetic");
 const meanings = document.getElementById("meanings");
 const phonetics = document.getElementById("phonetics");
 const sourceUrl = document.getElementById("sourceUrl");
+const history = document.getElementById("history");
 
 const getWords = async () => {
   const searchWord = input.value;
@@ -27,6 +28,8 @@ const getWords = async () => {
 
     sourceUrl.innerHTML = `<a href="${res.data[0].sourceUrls[0]}">${res.data[0].sourceUrls[0]}</a>`;
     sourceUrl.appendChild(Url);
+    history.innerHTML += `  ${input.value} `;
+
     return res.data;
   } catch (error) {
     console.log(error);
